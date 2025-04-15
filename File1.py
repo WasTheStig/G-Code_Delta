@@ -19,7 +19,7 @@ def generate_gcode(
 
     gcode.append("OPEN PROG 1 CLEAR")
     gcode.append(f";Power Mode {laser_mode} {power_mode}w")
-    if pp_1_t > 0:
+    if pp_1_p > 0:
         gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
     gcode.append(f";Point 2, Time {pp_2_t}s, Power {pp_2_p}%")
     gcode.append(f";Point 3, Time {pp_3_t}s, Power {pp_3_p}%")
