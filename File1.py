@@ -172,7 +172,7 @@ with col4:
     pp_4_p = st.number_input("Power 4 (%)", value=0)
 
 with col5:
-    pp_5_on = st.checkbox("PP4")
+    pp_5_on = st.checkbox("PP5")
     pp_5_t = st.number_input("Time 5 (s)", value=0.0)
     pp_5_p = st.number_input("Power 5 (%)", value=0)
 
