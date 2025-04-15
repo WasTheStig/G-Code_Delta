@@ -171,6 +171,13 @@ with col4:
     pp_4_t = st.number_input("Time 4 (s)", value=0.0)
     pp_4_p = st.number_input("Power 4 (%)", value=0)
 
+with col5:
+    pp_5_on = st.checkbox("PP4")
+    pp_5_t = st.number_input("Time 5 (s)", value=0.0)
+    pp_5_p = st.number_input("Power 5 (%)", value=0)
+
+
+
 st.title("Program Settings")
 feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
 laser_schedule = st.number_input("Laser Schedule #", value=1)
