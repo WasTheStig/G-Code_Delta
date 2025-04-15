@@ -18,6 +18,11 @@ def generate_gcode(
     cmd = "G2" if weld_direction.upper() == "CW" else "G3"
 
     gcode.append("OPEN PROG 1 CLEAR")
+    gcode.append(f";Power Mode CW {power_mode}%")
+    gcode.append(f"Point 1, Time {pp_1_t}s, Power {pp_1_p}%"
+    gcode.append(f"Point 2, Time {pp_2_t}s, Power {pp_2_p}%"
+    gcode.append(f"Point 3, Time {pp_3_t}s, Power {pp_3_p}%"
+    gcode.append(f"Point 1, Time {pp_4_t}s, Power {pp_4_p}%"    
     gcode.append("p480=0")
     gcode.append("M36 ;Door Close")
     gcode.append(f"DWELL {initial_gas_delay} ;Cover Gas Delay")
@@ -130,6 +135,16 @@ def generate_gcode(
 
 st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE", "ROTARY", "ROUNDED", "LOOP", "PBF"])
+st.title("Title Block Info")
+power_mode = st.number_input("Power Mode CW (w)", value=0)
+pp_1_t = st.number_input("Power Point 1 Time (s)", value=0)
+pp_1_p = st.number_input("Power Point 1 Power (%)", value=0)
+pp_2_t = st.number_input("Power Point 2 Time (s)", value=0)
+pp_2_p = st.number_input("Power Point 2 Power (%)", value=0)
+pp_3_t = st.number_input("Power Point 3 Time (s)", value=0)
+pp_3_p = st.number_input("Power Point 3 Power (%)", value=0)
+pp_4_t = st.number_input("Power Point 4 Time (s)", value=0)
+pp_4_p = st.number_input("Power Point 4 Power (%)", value=0)
 feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
 laser_schedule = st.number_input("Laser Schedule #", value=1)
 initial_gas_delay = st.number_input("Initial Gas Delay (ms)", value=2500)
