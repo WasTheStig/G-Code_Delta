@@ -43,6 +43,14 @@ def generate_gcode(
 
     program_type = program_type.upper()
 
+    import math
+    
+    if feed_rate > 0 and circle_radius > 0:
+        circumference = 2 * math.pi * circle_radius
+        weld_time = circumference / feed_rate
+        st.success(f"Estimated Weld Time: {weld_time:.2f} seconds (for one full circle)")
+    else:
+        st.warning("Enter valid Feed Rate and Radius to calculate weld time.")
 
 
     
