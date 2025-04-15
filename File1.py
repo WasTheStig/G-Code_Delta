@@ -98,7 +98,7 @@ def generate_gcode(
             gcode.append(f"{cmd} X0 Y0 I0 J-{circle_radius} ;Overlap")
         gcode.append("M55 ;Laser OFF")
         gcode.append("G90 ;Absolute")
-        gcode.append("x0 y0")
+        gcode.append("X0 Y0")
 
     elif program_type == "ROTARY":
         gcode += [
