@@ -140,7 +140,7 @@ if pp_4_on:
         "CLOSE ;End Program"
     ]
 
-    return "\n".join(gcode)
+return "\n".join(gcode)
 
 st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE", "ROTARY", "ROUNDED", "LOOP", "PBF"])
