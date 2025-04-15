@@ -53,8 +53,8 @@ def generate_gcode(
         st.warning("Enter valid Feed Rate and Radius to calculate weld time.")
 
      if overlap_pass == "Y":
-        weld_time *= 2
-        st.info(f"With overlap pass: {weld_time:.2f} seconds")
+           weld_time *= 2
+           st.info(f"With overlap pass: {weld_time:.2f} seconds")
 
 
 
