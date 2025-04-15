@@ -149,7 +149,7 @@ def generate_gcode(
         ]
 
     gcode += [
-        f"DWELL {cover_gas_delay} ;Cover Gas Delay",
+        f"DWELL {final_gas_delay} ;Cover Gas Delay",
         "M17 ;Cover Gas OFF",
         "M35 ;Door Open",
         "M52 ;Laser Pendant Mode",
@@ -200,7 +200,7 @@ feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
 laser_schedule = st.number_input("Laser Schedule #", value=1)
 initial_prog_delay = st.number_input("Initial Program Delay (ms)", value=0)
 gas_delay = st.number_input("Gas Delay (ms)", value=1500)
-cover_gas_delay = st.number_input("Cover Gas Delay (ms)", value=3000)
+final_gas_delay = st.number_input("Final Gas Delay (ms)", value=3000)
 circle_radius = st.number_input("Circle Radius (in)", value=0.125)
 rotation_angle = st.number_input("Rotation Angle (deg)", value=480)
 corner_radius = st.number_input("Corner Radius (in)", value=0.08)
