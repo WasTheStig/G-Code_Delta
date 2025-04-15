@@ -36,7 +36,7 @@ def generate_gcode(
     program_type = program_type.upper()
 
     if pp_1_t > 0:
-    gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
+        gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
 
     
     if program_type == "TACK":
