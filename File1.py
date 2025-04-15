@@ -19,7 +19,8 @@ def generate_gcode(
 
     gcode.append("OPEN PROG 1 CLEAR")
     gcode.append(f";Power Mode {laser_mode} {power_mode}w")
-    gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
+    if pp_1_t > 0:
+        gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
     gcode.append(f";Point 2, Time {pp_2_t}s, Power {pp_2_p}%")
     gcode.append(f";Point 3, Time {pp_3_t}s, Power {pp_3_p}%")
     gcode.append(f";Point 4, Time {pp_4_t}s, Power {pp_4_p}%")    
@@ -35,8 +36,7 @@ def generate_gcode(
 
     program_type = program_type.upper()
 
-    if pp_1_t > 0:
-        gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
+
 
     
     if program_type == "TACK":
