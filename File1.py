@@ -159,6 +159,8 @@ def generate_gcode(
 
     return "\n".join(gcode)
 
+
+#----Inputs
 st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE", "ROTARY", "ROUNDED", "LOOP", "PBF"])
 st.title("Laser Settings")
