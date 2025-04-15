@@ -149,7 +149,7 @@ program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE
 st.title("Laser Settings")
 laser_mode = st.selectbox("Laser Mode", ["FLEX", "FIX", "CW"])
 power_mode = st.number_input("Power Mode CW (w)", value=0)
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4, col5 = st.columns(4)
 
 with col1:
     pp_1_on = st.checkbox("PP1")
