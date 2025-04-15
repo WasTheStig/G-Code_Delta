@@ -20,7 +20,7 @@ def generate_gcode(
     gcode.append("OPEN PROG 1 CLEAR")
     gcode.append("p480=0")
     gcode.append("M36 ;Door Close")
-    gcode.appedn(f"DWELL {initial_gas_delay} ;Cover Gas Delay")
+    gcode.append(f"DWELL {initial_gas_delay} ;Cover Gas Delay")
     gcode.append("M53 ;Laser External Mode")
     gcode.append(f"M10 S{laser_schedule} ;Select Laser Schedule")
     gcode.append(f"DWELL {gas_delay} ;Gas Delay")
