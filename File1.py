@@ -33,7 +33,7 @@ def generate_gcode(
 
     gcode.append("p480=0")
     gcode.append("M36 ;Door Close")
-    gcode.append(f"DWELL {initial_gas_delay} ;Cover Gas Delay")
+    gcode.append(f"DWELL {initial_prog_delay} ;Cover Gas Delay")
     gcode.append("M53 ;Laser External Mode")
     gcode.append(f"M10 S{laser_schedule} ;Select Laser Schedule")
     gcode.append(f"DWELL {gas_delay} ;Gas Delay")
@@ -198,7 +198,7 @@ with col5:
 st.title("Program Settings")
 feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
 laser_schedule = st.number_input("Laser Schedule #", value=1)
-initial_gas_delay = st.number_input("Initial Gas Delay (ms)", value=2500)
+initial_prog_delay = st.number_input("Initial Program Delay (ms)", value=0)
 gas_delay = st.number_input("Gas Delay (ms)", value=1500)
 cover_gas_delay = st.number_input("Cover Gas Delay (ms)", value=3000)
 circle_radius = st.number_input("Circle Radius (in)", value=0.125)
