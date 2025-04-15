@@ -1,5 +1,5 @@
 import streamlit as st
-
+ 
 def generate_gcode(
     program_type,
     feed_rate,
