@@ -162,7 +162,7 @@ def generate_gcode(
 
 #----Inputs
 st.title("Delta Motion G-Code Generator")
-program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE", "ROTARY", "ROUNDED", "LOOP", "PBF"])
+program_type = st.selectbox("Program Type *Only Circle*", ["TACK", "STITCH", "SQUARE", "CIRCLE", "ROTARY", "ROUNDED", "LOOP", "PBF"])
 st.title("Laser Settings")
 laser_mode = st.selectbox("Laser Mode", ["FLEX", "FIX", "CW"])
 power_mode = st.number_input("Power Mode CW (w)", value=0)
