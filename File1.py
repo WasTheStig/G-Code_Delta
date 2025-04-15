@@ -18,7 +18,7 @@ def generate_gcode(
     cmd = "G2" if weld_direction.upper() == "CW" else "G3"
 
     gcode.append("OPEN PROG 1 CLEAR")
-    gcode.append(f"Power Mode CW {power_mode}%")
+    gcode.append(f" ;Power Mode CW {power_mode}%")
     gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%"
     gcode.append(f";Point 2, Time {pp_2_t}s, Power {pp_2_p}%"
     gcode.append(f";Point 3, Time {pp_3_t}s, Power {pp_3_p}%"
