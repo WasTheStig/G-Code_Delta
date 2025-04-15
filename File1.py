@@ -1,7 +1,4 @@
 import streamlit as st
-import matplotlib.pyplot as plt
-import numpy as np
-import re
 
 def generate_gcode(
     program_type,
@@ -147,57 +144,6 @@ def generate_gcode(
 
     return "\n".join(gcode)
 
-def parse_and_plot_gcode(gcode):
-    lines = gcode.splitlines()
-    fig, ax = plt.subplots()
-    ax.set_title("G-Code Backplot")
-    ax.set_xlabel("X")
-    ax.set_ylabel("Y")
-    ax.axis("equal")
-    ax.grid(True)
-    pos = [0.0, 0.0]
-    is_relative = True
-
-    for line in lines:
-        line = line.strip().upper()
-        if not line or line.startswith(";"): continue
-        if "G90" in line: is_relative = False
-        elif "G91" in line: is_relative = True
-
-        m1 = re.match(r"G1\s+X([-0-9.]+)?\s*Y([-0-9.]+)?", line)
-        if m1:
-            x = float(m1.group(1) or 0)
-            y = float(m1.group(2) or 0)
-            nx = pos[0] + x if is_relative else x
-            ny = pos[1] + y if is_relative else y
-            ax.plot([pos[0], nx], [pos[1], ny], 'b-')
-            pos = [nx, ny]
-            continue
-
-        m2 = re.match(r"G([23])\s+X([-0-9.]+)?\s*Y([-0-9.]+)?\s*I([-0-9.]+)?\s*J([-0-9.]+)?", line)
-        if m2:
-            cw = m2.group(1) == "2"
-            x = float(m2.group(2) or 0)
-            y = float(m2.group(3) or 0)
-            i = float(m2.group(4) or 0)
-            j = float(m2.group(5) or 0)
-            xc, yc = pos[0] + i, pos[1] + j
-            nx = pos[0] + x if is_relative else x
-            ny = pos[1] + y if is_relative else y
-            radius = np.sqrt(i**2 + j**2)
-            start_angle = np.arctan2(pos[1] - yc, pos[0] - xc)
-            end_angle = np.arctan2(ny - yc, nx - xc)
-            if cw and end_angle > start_angle:
-                end_angle -= 2 * np.pi
-            elif not cw and end_angle < start_angle:
-                end_angle += 2 * np.pi
-            theta = np.linspace(start_angle, end_angle, 100)
-            ax.plot(xc + radius * np.cos(theta), yc + radius * np.sin(theta), 'r-')
-            pos = [nx, ny]
-
-    st.pyplot(fig)
-
-#--Title
 st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE", "ROTARY", "ROUNDED", "LOOP", "PBF"])
 st.title("Laser Settings")
