@@ -62,6 +62,7 @@ def generate_gcode(
         gcode += [
             f"Y{circle_radius} ;Start position",
             "M54 ;Laser ON",
+            f"F{feed_rate} ;Feed Rate",
             f"{cmd} X0 Y0 I0 J-{circle_radius}"
         ]
         if overlap_pass.upper() == "Y":
