@@ -149,21 +149,28 @@ program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE
 st.title("Laser Settings")
 laser_mode = st.selectbox("Laser Mode", ["FLEX", "FIX", "CW"])
 power_mode = st.number_input("Power Mode CW (w)", value=0)
-pp_1_on = st.checkbox("Include Power Point 1", value=False)
-pp_2_on = st.checkbox("Include Power Point 2", value=False)
-pp_3_on = st.checkbox("Include Power Point 3", value=False)
-pp_4_on = st.checkbox("Include Power Point 4", value=False)
-pp_5_on = st.checkbox("Include Power Point 5", value=False)
-pp_1_t = st.number_input("Power Point 1 Time (s)", value=0)
-pp_1_p = st.number_input("Power Point 1 Power (%)", value=0)
-pp_2_t = st.number_input("Power Point 2 Time (s)", value=0)
-pp_2_p = st.number_input("Power Point 2 Power (%)", value=0)
-pp_3_t = st.number_input("Power Point 3 Time (s)", value=0)
-pp_3_p = st.number_input("Power Point 3 Power (%)", value=0)
-pp_4_t = st.number_input("Power Point 4 Time (s)", value=0)
-pp_4_p = st.number_input("Power Point 4 Power (%)", value=0)
-pp_5_t = st.number_input("Power Point 5 Time (s)", value=0)
-pp_5_p = st.number_input("Power Point 5 Power (%)", value=0)
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    pp_1_on = st.checkbox("PP1")
+    pp_1_t = st.number_input("Time 1 (s)", value=0.0)
+    pp_1_p = st.number_input("Power 1 (%)", value=0)
+
+with col2:
+    pp_2_on = st.checkbox("PP2")
+    pp_2_t = st.number_input("Time 2 (s)", value=0.0)
+    pp_2_p = st.number_input("Power 2 (%)", value=0)
+
+with col3:
+    pp_3_on = st.checkbox("PP3")
+    pp_3_t = st.number_input("Time 3 (s)", value=0.0)
+    pp_3_p = st.number_input("Power 3 (%)", value=0)
+
+with col4:
+    pp_4_on = st.checkbox("PP4")
+    pp_4_t = st.number_input("Time 4 (s)", value=0.0)
+    pp_4_p = st.number_input("Power 4 (%)", value=0)
+
 st.title("Program Settings")
 feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
 laser_schedule = st.number_input("Laser Schedule #", value=1)
