@@ -71,8 +71,8 @@ def generate_gcode(
 
     elif program_type == "ROTARY":
         gcode += [
-            f"F{feed_rate}",
             "M54 ;Laser ON",
+            f"F{feed_rate}",
             f"A-{rotation_angle} ;Rotate part",
             "M55 ;Laser OFF"
         ]
