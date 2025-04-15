@@ -118,6 +118,7 @@ def generate_gcode(
     gcode += [
         f"DWELL {cover_gas_delay} ;Cover Gas Delay",
         "M17 ;Cover Gas OFF",
+        "M35 ;Door Open",
         "M52 ;Laser Pendant Mode",
         "p480=1 ;System Flag ON",
         "CLOSE ;End Program"
