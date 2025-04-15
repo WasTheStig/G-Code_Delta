@@ -19,11 +19,16 @@ def generate_gcode(
 
     gcode.append("OPEN PROG 1 CLEAR")
     gcode.append(f";Power Mode {laser_mode} {power_mode}w")
-    if pp_1_p > 0:
-        gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
+    gcode.append(f";Power Mode {laser_mode} {power_mode}w")
+if pp_1_on:
+    gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
+if pp_2_on:
     gcode.append(f";Point 2, Time {pp_2_t}s, Power {pp_2_p}%")
+if pp_3_on:
     gcode.append(f";Point 3, Time {pp_3_t}s, Power {pp_3_p}%")
-    gcode.append(f";Point 4, Time {pp_4_t}s, Power {pp_4_p}%")    
+if pp_4_on:
+    gcode.append(f";Point 4, Time {pp_4_t}s, Power {pp_4_p}%")
+
     gcode.append("p480=0")
     gcode.append("M36 ;Door Close")
     gcode.append(f"DWELL {initial_gas_delay} ;Cover Gas Delay")
@@ -142,6 +147,10 @@ program_type = st.selectbox("Program Type", ["TACK", "STITCH", "SQUARE", "CIRCLE
 st.title("Laser Settings")
 laser_mode = st.selectbox("Laser Mode", ["FLEX", "FIX", "CW"])
 power_mode = st.number_input("Power Mode CW (w)", value=0)
+pp_1_on = st.checkbox("Include Power Point 1", value=False)
+pp_2_on = st.checkbox("Include Power Point 2", value=False)
+pp_3_on = st.checkbox("Include Power Point 3", value=False)
+pp_4_on = st.checkbox("Include Power Point 4", value=False)
 pp_1_t = st.number_input("Power Point 1 Time (s)", value=0)
 pp_1_p = st.number_input("Power Point 1 Power (%)", value=0)
 pp_2_t = st.number_input("Power Point 2 Time (s)", value=0)
