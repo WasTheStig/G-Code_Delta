@@ -207,7 +207,7 @@ rotation_angle = st.number_input("Rotation Angle (deg)", value=480)
 corner_radius = st.number_input("Corner Radius (in)", value=0.08)
 overlap_pass = st.selectbox("Overlap Pass", ["Y", "N"])
 weld_direction = st.selectbox("Weld Direction", ["CW", "CCW"])
-loop_count = st.number_input("# of Loops", value=3)
+loop_count = st.number_input("Number of Loops", value=3)
 use_pbf = st.selectbox("Use PBF?", ["Y", "N"])
 pbf_overlap = st.number_input("PBF Overlap (in)", value=0.06)
 
