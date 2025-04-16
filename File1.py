@@ -78,14 +78,20 @@ def generate_gcode(
 
     elif program_type == "SQUARE":
         gcode += [
+            f"X{1/rectangle_x} ;Start Position",
+            f"F{feed_rate} ;Feed Rate",
             "M54 ;Laser ON",
-            "X1.1748",
-            "Y-1.1748",
-            "X-1.1748",
-            "Y1.1748",
-            "X0.25 ;Overlap",
+            f"x{rectangle_x/2}",
+            f"y{rectangle_y/2}",
+            f"-x{rectangle_x}",
+            f"-y{rectangle_y}",
+            f"x{rectangle_x}",
+            f"y{rectangle_y/2+pbf_overlap}",
             "M55 ;Laser OFF"
         ]
+        gcode.append("M55 ;Laser OFF")
+        gcode.append("G90 ;Absolute")
+        gcode.append("X0 Y0")
 
     elif program_type == "CIRCLE":
         gcode += [
@@ -206,6 +212,8 @@ circle_radius = st.number_input("Circle Radius (in)", value=0.125)
 rotation_angle = st.number_input("Rotation Angle (deg)", value=480)
 corner_radius = st.number_input("Corner Radius (in)", value=0.08)
 overlap_pass = st.selectbox("Overlap Pass", ["Y", "N"])
+rectangle_x = st.number_input("Rectangle X Value (in)")
+rectangle_y = st.number_inpurt("Rectangle Y Value (in)")
 weld_direction = st.selectbox("Weld Direction", ["CW", "CCW"])
 loop_count = st.number_input("Number of Loops", value=3)
 use_pbf = st.selectbox("Use PBF?", ["Y", "N"])
