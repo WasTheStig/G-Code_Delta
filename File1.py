@@ -176,7 +176,7 @@ def generate_gcode(
 st.header("📐 Laser Weld Setting Estimator")
 
 material = st.selectbox("Material", ["304 Stainless", "316 Stainless", "Titanium", "Inconel"])
-thickness = st.number_input("Material Thickness (inches)", value=0.125, step=0.005)
+thickness = st.number_input("Material Thickness (inches)", value=0.125, step=0.001)
 
 if material == "304 Stainless":
     if thickness <= 0.03:
