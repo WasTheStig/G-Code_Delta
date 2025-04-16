@@ -81,7 +81,6 @@ def generate_gcode(
             f"X{rectangle_x/2} ;Start Position",
             f"F{feed_rate} ;Feed Rate",
             "M54 ;Laser ON",
-            f"x{rectangle_x/2}",
             f"y{rectangle_y/2}",
             f"-x{rectangle_x}",
             f"-y{rectangle_y}",
