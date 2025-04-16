@@ -88,11 +88,11 @@ def generate_gcode(
             f"x{rectangle_x}"
         ] 
         if overlap_pass.upper() == "Y":
-            gcode.append(f"y{rectangle_y}"),
-            gcode.append(f"-x{rectangle_x}")
-            gcode.append(f"-y{rectangle_y}")
-            gcode.append(f"x{rectangle_x}")
-        gcode.append(f"y{rectangle_y/2+pbf_overlap}")
+            gcode.append(f"Y{rectangle_y}"),
+            gcode.append(f"-X{rectangle_x}")
+            gcode.append(f"-Y{rectangle_y}")
+            gcode.append(f"X{rectangle_x}")
+        gcode.append(f"Y{rectangle_y/2+pbf_overlap}")
         
         gcode.append("M55 ;Laser OFF")
         gcode.append("G90 ;Absolute")
