@@ -160,11 +160,11 @@ def generate_gcode(
     return "\n".join(gcode)
 # --- Power Profile Total Time ---
 pp_times = []
-    if pp_1_on: pp_times.append(pp_1_t)
-    if pp_2_on: pp_times.append(pp_2_t)
-    if pp_3_on: pp_times.append(pp_3_t)
-    if pp_4_on: pp_times.append(pp_4_t)
-    if pp_5_on: pp_times.append(pp_5_t)
+if pp_1_on: pp_times.append(pp_1_t)
+if pp_2_on: pp_times.append(pp_2_t)
+if pp_3_on: pp_times.append(pp_3_t)
+if pp_4_on: pp_times.append(pp_4_t)
+if pp_5_on: pp_times.append(pp_5_t)
 
     if pp_times:
       total_pulse_ms = sum(pp_times)
