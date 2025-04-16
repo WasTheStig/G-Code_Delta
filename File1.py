@@ -166,6 +166,14 @@ st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type *Only Circle*", ["CIRCLE", "STITCH", "SQUARE", "TACK", "ROTARY", "ROUNDED", "LOOP", "PBF"])
 st.title("Laser Settings")
 laser_mode = st.selectbox("Laser Mode", ["FLEX", "FIX", "CW"])
+
+if program_type != "CIRCLE":
+    rotation_angle = st.number_input("Rotation Angle (deg)", value=480)
+    corner_radius = st.number_input("Corner Radius (in)", value=0.08)
+    loop_count = st.number_input("# of Loops", value=3)
+    use_pbf = st.selectbox("Use PBF?", ["Y", "N"])
+    pbf_overlap = st.number_input("PBF Overlap (in)", value=0.06)
+
 power_mode = st.number_input("Power Mode CW (w)", value=0)
 col1, col2, col3, col4, col5 = st.columns(5)
 
