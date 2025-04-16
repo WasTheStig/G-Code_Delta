@@ -20,15 +20,15 @@ def generate_gcode(
     gcode.append("OPEN PROG 1 CLEAR")
     
     gcode.append(f";Power Mode {laser_mode} {power_mode}w")
-     if pp_1_on:
+    if pp_1_on:
         gcode.append(f";Point 1, Time {pp_1_t}ms, Power {pp_1_p}%")
-     if pp_2_on:
+    if pp_2_on:
         gcode.append(f";Point 2, Time {pp_2_t}ms, Power {pp_2_p}%")
-     if pp_3_on:
+    if pp_3_on:
         gcode.append(f";Point 3, Time {pp_3_t}ms, Power {pp_3_p}%")
-     if pp_4_on:
+    if pp_4_on:
         gcode.append(f";Point 4, Time {pp_4_t}ms, Power {pp_4_p}%")
-     if pp_5_on:
+    if pp_5_on:
         gcode.append(f";Point 5, Time {pp_5_t}ms, Power {pp_5_p}%")
 
     gcode.append("p480=0")
