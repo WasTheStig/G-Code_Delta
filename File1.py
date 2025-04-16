@@ -187,6 +187,13 @@ if program_type != "CIRCLE":
     use_pbf = st.selectbox("Use PBF?", ["Y", "N"])
     pbf_overlap = st.number_input("PBF Overlap (in)", value=0.06)
 
+if program_type == "CIRCLE":
+    rotation_angle = 0
+    corner_radius = 0
+    loop_count = 0
+    use_pbf = "N"
+    pbf_overlap = 0.0
+
 power_mode = st.number_input("Power Mode CW (w)", value=0)
 col1, col2, col3, col4, col5 = st.columns(5)
 
