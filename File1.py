@@ -93,7 +93,7 @@ def generate_gcode(
             gcode.append(f"-{rectangle_y}")
             gcode.append(f"{rectangle_x}")
         gcode.append(f"y{rectangle_y/2+pbf_overlap}")
-        ]
+        
         gcode.append("M55 ;Laser OFF")
         gcode.append("G90 ;Absolute")
         gcode.append("X0 Y0")
