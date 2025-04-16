@@ -166,17 +166,6 @@ st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type *Only Circle*", ["CIRCLE", "STITCH", "SQUARE", "TACK", "ROTARY", "ROUNDED", "LOOP", "PBF"])
 st.title("Laser Settings")
 laser_mode = st.selectbox("Laser Mode", ["FLEX", "FIX", "CW"])
-
-# Always show these (for all programs)
-feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
-laser_schedule = st.number_input("Laser Schedule #", value=1)
-initial_prog_delay = st.number_input("Initial Program Delay (ms)", value=0)
-gas_delay = st.number_input("Gas Delay (ms)", value=1500)
-final_gas_delay = st.number_input("Final Gas Delay (ms)", value=3000)
-overlap_pass = st.selectbox("Overlap Pass", ["Y", "N"])
-
-
-
 power_mode = st.number_input("Power Mode CW (w)", value=0)
 col1, col2, col3, col4, col5 = st.columns(5)
 
@@ -242,4 +231,4 @@ if st.button("Generate G-Code"):
                             rotation_angle, corner_radius, overlap_pass, weld_direction,
                             loop_count, use_pbf, pbf_overlap)
     st.text_area("Generated G-Code", result, height=400)
-    st.download_button("Download G-Code", result, file_name="weld_program.NC", mime="text/plain")
+    st.download_button("Download G-Code", result, file_name="weld_program.txt", mime="text/plain")
