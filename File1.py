@@ -231,4 +231,4 @@ if st.button("Generate G-Code"):
                             rotation_angle, corner_radius, overlap_pass, weld_direction,
                             loop_count, use_pbf, pbf_overlap)
     st.text_area("Generated G-Code", result, height=400)
-    st.download_button("Download G-Code", result, file_name="weld_program.txt", mime="text/plain")
+    st.download_button("Download G-Code", result, file_name="weld_program.NC", mime="text/plain")
