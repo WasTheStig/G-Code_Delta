@@ -1,9 +1,6 @@
 import streamlit as st
 
-import qrcode
-from io import BytesIO
-from PIL import Image
-import streamlit as st
+
  
 def generate_gcode(
     program_type,
@@ -280,38 +277,4 @@ if st.button("Generate G-Code"):
     st.download_button("Download G-Code", result, file_name="weld_program.NC", mime="text/plain")
 
 
-# --- QR Code Generator Section ---
-st.subheader("🔲 QR Code: Weld Summary")
-
-if st.button("Generate QR Code for Weld Job"):
-    # Build text summary
-    qr_summary = f"""Weld Program: {program_type}
-Material: 304 Stainless
-Thickness: {circle_radius * 2:.3f}" (diameter est.)
-Feed Rate: {feed_rate} in/s
-Laser Schedule: {laser_schedule}
-Initial Delay: {initial_prog_delay} ms
-Final Delay: {final_gas_delay} ms
-Overlap Pass: {overlap_pass}
-"""  # You can add more fields here as needed
-
-    # Generate QR code image
-    qr = qrcode.QRCode(version=1, box_size=8, border=4)
-    qr.add_data(qr_summary)
-    qr.make(fit=True)
-    img = qr.make_image(fill_color="black", back_color="white")
-
-    # Display QR code
-    buf = BytesIO()
-    img.save(buf, format="PNG")
-    buf.seek(0)
-    st.image(buf, caption="Weld Job QR Code")
-
-    # Download button
-    st.download_button(
-        label="Download QR Code as PNG",
-        data=buf,
-        file_name="weld_job_qr.png",
-        mime="image/png"
-    )
 
