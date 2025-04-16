@@ -166,10 +166,10 @@ if pp_3_on: pp_times.append(pp_3_t)
 if pp_4_on: pp_times.append(pp_4_t)
 if pp_5_on: pp_times.append(pp_5_t)
 
-    if pp_times:
-      total_pulse_ms = sum(pp_times)
-      total_pulse_sec = total_pulse_ms / 1000
-      st.info(f"Total Weld Pulse Time: {total_pulse_ms:.0f} ms ({total_pulse_sec:.2f} seconds)")
+if pp_times:
+   total_pulse_ms = sum(pp_times)
+   total_pulse_sec = total_pulse_ms / 1000
+   st.info(f"Total Weld Pulse Time: {total_pulse_ms:.0f} ms ({total_pulse_sec:.2f} seconds)")
 else:
     st.warning("No power points selected to calculate weld pulse time.")
 
