@@ -194,25 +194,7 @@ with col5:
     pp_5_t = st.number_input("Time 5 (ms)", value=0.0)
     pp_5_p = st.number_input("Power 5 (%)", value=0)
 
-# Always show these (for all programs)
-feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
-laser_schedule = st.number_input("Laser Schedule #", value=1)
-initial_prog_delay = st.number_input("Initial Program Delay (ms)", value=0)
-gas_delay = st.number_input("Gas Delay (ms)", value=1500)
-final_gas_delay = st.number_input("Final Gas Delay (ms)", value=3000)
-overlap_pass = st.selectbox("Overlap Pass", ["Y", "N"])
 
-# Circle-specific
-if program_type == "CIRCLE":
-    circle_radius = st.number_input("Circle Radius (in)", value=0.125)
-
-# Everything else (not for CIRCLE)
-if program_type != "CIRCLE":
-    rotation_angle = st.number_input("Rotation Angle (deg)", value=480)
-    corner_radius = st.number_input("Corner Radius (in)", value=0.08)
-    loop_count = st.number_input("# of Loops", value=3)
-    use_pbf = st.selectbox("Use PBF?", ["Y", "N"])
-    pbf_overlap = st.number_input("PBF Overlap (in)", value=0.06)
 
 st.title("Program Settings")
 feed_rate = st.number_input("Feed Rate (in/s)", value=0.2)
