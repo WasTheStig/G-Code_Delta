@@ -172,7 +172,7 @@ def generate_gcode(
 
 
 
-#----Inputs
+#----Inputs 
 st.header("📐 Laser Weld Setting Estimator")
 
 material = st.selectbox("Material", ["304 Stainless", "316 Stainless", "Titanium", "Inconel"])
