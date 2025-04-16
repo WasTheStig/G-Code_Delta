@@ -173,6 +173,34 @@ def generate_gcode(
 
 
 #----Inputs
+st.header("📐 Laser Weld Setting Estimator")
+
+material = st.selectbox("Material", ["304 Stainless", "316 Stainless", "Titanium", "Inconel"])
+thickness = st.number_input("Material Thickness (inches)", value=0.125, step=0.005)
+
+if material == "304 Stainless":
+    if thickness <= 0.03:
+        power = "50–80 W"
+        feed = "0.08–0.12 in/s"
+    elif thickness <= 0.06:
+        power = "80–100 W"
+        feed = "0.06–0.10 in/s"
+    elif thickness <= 0.09:
+        power = "100–120 W"
+        feed = "0.06–0.09 in/s"
+    elif thickness <= 0.125:
+        power = "120–160 W"
+        feed = "0.06–0.12 in/s"
+    else:
+        power = "160–200 W"
+        feed = "0.05–0.10 in/s"
+
+    st.success(f"📊 Recommended Settings for {thickness:.3f}\" {material}:")
+    st.markdown(f"- **Laser Power:** {power}\\n- **Feed Rate:** {feed}")
+    st.caption("These are starting points. Always validate via test welds.")
+else:
+    st.info("Material not yet configured — try '304 Stainless' for full guidance.")
+
 st.title("Delta Motion G-Code Generator")
 program_type = st.selectbox("Program Type *Only Circle*", ["CIRCLE", "STITCH", "SQUARE", "TACK", "ROTARY", "ROUNDED", "LOOP", "PBF"])
 st.title("Laser Settings")
