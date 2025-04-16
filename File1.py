@@ -78,7 +78,7 @@ def generate_gcode(
 
     elif program_type == "SQUARE":
         gcode += [
-            f"X{1/rectangle_x} ;Start Position",
+            f"X{rectangle_x/2} ;Start Position",
             f"F{feed_rate} ;Feed Rate",
             "M54 ;Laser ON",
             f"x{rectangle_x/2}",
