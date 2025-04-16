@@ -21,15 +21,15 @@ def generate_gcode(
     
     gcode.append(f";Power Mode {laser_mode} {power_mode}w")
     if pp_1_on:
-        gcode.append(f";Point 1, Time {pp_1_t}s, Power {pp_1_p}%")
+        gcode.append(f";Point 1, Time {pp_1_t}ms, Power {pp_1_p}%")
     if pp_2_on:
-        gcode.append(f";Point 2, Time {pp_2_t}s, Power {pp_2_p}%")
+        gcode.append(f";Point 2, Time {pp_2_t}ms, Power {pp_2_p}%")
     if pp_3_on:
-        gcode.append(f";Point 3, Time {pp_3_t}s, Power {pp_3_p}%")
+        gcode.append(f";Point 3, Time {pp_3_t}ms, Power {pp_3_p}%")
     if pp_4_on:
-        gcode.append(f";Point 4, Time {pp_4_t}s, Power {pp_4_p}%")
+        gcode.append(f";Point 4, Time {pp_4_t}ms, Power {pp_4_p}%")
     if pp_5_on:
-        gcode.append(f";Point 5, Time {pp_5_t}s, Power {pp_5_p}%")
+        gcode.append(f";Point 5, Time {pp_5_t}ms, Power {pp_5_p}%")
 
     gcode.append("p480=0")
     gcode.append("M36 ;Door Close")
@@ -158,6 +158,20 @@ def generate_gcode(
     ]
 
     return "\n".join(gcode)
+# --- Power Profile Total Time ---
+pp_times = []
+if pp_1_on: pp_times.append(pp_1_t)
+if pp_2_on: pp_times.append(pp_2_t)
+if pp_3_on: pp_times.append(pp_3_t)
+if pp_4_on: pp_times.append(pp_4_t)
+if pp_5_on: pp_times.append(pp_5_t)
+
+if pp_times:
+    total_pulse_ms = sum(pp_times)
+    total_pulse_sec = total_pulse_ms / 1000
+    st.info(f"Total Weld Pulse Time: {total_pulse_ms:.0f} ms ({total_pulse_sec:.2f} seconds)")
+else:
+    st.warning("No power points selected to calculate weld pulse time.")
 
 
 #----Inputs
