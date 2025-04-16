@@ -170,27 +170,27 @@ col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
     pp_1_on = st.checkbox("PP1")
-    pp_1_t = st.number_input("Time 1 (s)", value=0.0)
+    pp_1_t = st.number_input("Time 1 (ms)", value=0.0)
     pp_1_p = st.number_input("Power 1 (%)", value=0)
 
 with col2:
     pp_2_on = st.checkbox("PP2")
-    pp_2_t = st.number_input("Time 2 (s)", value=0.0)
+    pp_2_t = st.number_input("Time 2 (ms)", value=0.0)
     pp_2_p = st.number_input("Power 2 (%)", value=0)
 
 with col3:
     pp_3_on = st.checkbox("PP3")
-    pp_3_t = st.number_input("Time 3 (s)", value=0.0)
+    pp_3_t = st.number_input("Time 3 (ms)", value=0.0)
     pp_3_p = st.number_input("Power 3 (%)", value=0)
 
 with col4:
     pp_4_on = st.checkbox("PP4")
-    pp_4_t = st.number_input("Time 4 (s)", value=0.0)
+    pp_4_t = st.number_input("Time 4 (ms)", value=0.0)
     pp_4_p = st.number_input("Power 4 (%)", value=0)
 
 with col5:
     pp_5_on = st.checkbox("PP5")
-    pp_5_t = st.number_input("Time 5 (s)", value=0.0)
+    pp_5_t = st.number_input("Time 5 (ms)", value=0.0)
     pp_5_p = st.number_input("Power 5 (%)", value=0)
 
 
