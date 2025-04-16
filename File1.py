@@ -158,20 +158,7 @@ def generate_gcode(
     ]
 
     return "\n".join(gcode)
-# --- Power Profile Total Time ---
-pp_times = []
-if pp_1_on: pp_times.append(pp_1_t)
-if pp_2_on: pp_times.append(pp_2_t)
-if pp_3_on: pp_times.append(pp_3_t)
-if pp_4_on: pp_times.append(pp_4_t)
-if pp_5_on: pp_times.append(pp_5_t)
 
-if pp_times:
-   total_pulse_ms = sum(pp_times)
-   total_pulse_sec = total_pulse_ms / 1000
-   st.info(f"Total Weld Pulse Time: {total_pulse_ms:.0f} ms ({total_pulse_sec:.2f} seconds)")
-else:
-    st.warning("No power points selected to calculate weld pulse time.")
 
 
 #----Inputs
@@ -223,6 +210,21 @@ weld_direction = st.selectbox("Weld Direction", ["CW", "CCW"])
 loop_count = st.number_input("# of Loops", value=3)
 use_pbf = st.selectbox("Use PBF?", ["Y", "N"])
 pbf_overlap = st.number_input("PBF Overlap (in)", value=0.06)
+
+# --- Power Profile Total Time ---
+pp_times = []
+if pp_1_on: pp_times.append(pp_1_t)
+if pp_2_on: pp_times.append(pp_2_t)
+if pp_3_on: pp_times.append(pp_3_t)
+if pp_4_on: pp_times.append(pp_4_t)
+if pp_5_on: pp_times.append(pp_5_t)
+
+if pp_times:
+   total_pulse_ms = sum(pp_times)
+   total_pulse_sec = total_pulse_ms / 1000
+   st.info(f"Total Weld Pulse Time: {total_pulse_ms:.0f} ms ({total_pulse_sec:.2f} seconds)")
+else:
+    st.warning("No power points selected to calculate weld pulse time.")
 
 if st.button("Generate G-Code"):
     result = generate_gcode(program_type, feed_rate, laser_schedule, gas_delay, circle_radius,
