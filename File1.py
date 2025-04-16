@@ -81,11 +81,11 @@ def generate_gcode(
             f"X{rectangle_x/2} ;Start Position",
             f"F{feed_rate} ;Feed Rate",
             "M54 ;Laser ON",
-            f"x{rectangle_x/2}",
-            f"y{rectangle_y/2}",
-            f"-x{rectangle_x}",
-            f"-y{rectangle_y}",
-            f"x{rectangle_x}"
+            f"X{rectangle_x/2}",
+            f"Y{rectangle_y/2}",
+            f"-X{rectangle_x}",
+            f"-Y{rectangle_y}",
+            f"X{rectangle_x}"
         ] 
         if overlap_pass.upper() == "Y":
             gcode.append(f"Y{rectangle_y}"),
