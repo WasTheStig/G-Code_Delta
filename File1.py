@@ -87,7 +87,7 @@ def generate_gcode(
             f"X-{rectangle_x}",
             f"Y-{rectangle_y}",
             f"X{rectangle_x}",
-            f"Y{rectangle_y}"
+            f"Y{rectangle_y/2}"
         ] 
         if overlap_pass.upper() == "Y":
             gcode.append(f"Y{rectangle_y}"),
