@@ -77,7 +77,7 @@ def generate_gcode(
             "X0 Y0 ;Return Home",
             "M55 ;Laser OFF"
         ]
-
+ 
     elif program_type == "SQUARE":
         gcode += [
             f"X{rectangle_x/2} ;Start Position",
